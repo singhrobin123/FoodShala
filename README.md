@@ -1,42 +1,23 @@
-# mern-auth
+## FoodShala
 
-![Final App](https://i.postimg.cc/tybZb8dL/final-MERNAuth.gif)
-Minimal full-stack MERN app with authentication using passport and JWTs.
+[See Demo here](http://15.206.195.65/)
 
-This project uses the following technologies:
-
-- [React](https://reactjs.org) and [React Router](https://reacttraining.com/react-router/) for frontend
-- [Express](http://expressjs.com/) and [Node](https://nodejs.org/en/) for the backend
-- [MongoDB](https://www.mongodb.com/) for the database
-- [Redux](https://redux.js.org/basics/usagewithreact) for state management between React components
-
-## Medium Series
-
-- [Build a Login/Auth App with the MERN Stack — Part 1 (Backend)](https://blog.bitsrc.io/build-a-login-auth-app-with-mern-stack-part-1-c405048e3669)
-- [Build a Login/Auth App with the MERN Stack — Part 2 (Frontend & Redux Setup)](https://blog.bitsrc.io/build-a-login-auth-app-with-mern-stack-part-2-frontend-6eac4e38ee82)
-- [Build a Login/Auth App with the MERN Stack — Part 3 (Linking Redux with React Components)](https://blog.bitsrc.io/build-a-login-auth-app-with-the-mern-stack-part-3-react-components-88190f8db718)
-
-## Configuration
-
-Make sure to add your own `MONGOURI` from your [mLab](http://mlab.com) database in `config/keys.js`.
-
-```javascript
-module.exports = {
-  mongoURI: "YOUR_MONGO_URI_HERE",
-  secretOrKey: "secret"
-};
-```
-
-## Quick Start
-
-```javascript
-// Install dependencies for server & client
-npm install && npm run client-install
-
-// Run client & server with concurrently
-npm run dev
-
-// Server runs on http://localhost and client on http://localhost:3000
-```
-
-For deploying to Heroku, please refer to [this](https://www.youtube.com/watch?v=71wSzpLyW9k) helpful video by TraversyMedia.
+  Assume you are designing a real-life system, that will be used by real users.
+  The application should contain 2 types of users: Restaurants and Customers
+ Pages to be developed-
+‘Registration’ pages - Different registration pages for Restaurants & Customers. Capture
+customer’s preferences (veg/non-veg) during registration.
+‘Login’ pages - Single/different login pages for restaurants & customers.
+‘Add menu item’ page - A restaurant, once logged in, should be able to add details of new food
+items (including whether they are veg or non-veg) to their restaurant’s menu. Access to this
+page should be restricted only to restaurants.
+‘Menu’ page - There should be a page that displays all the available food items along with which
+restaurants have them and a ‘Order’ button. This page should be accessible to everyone,
+irrespective of whether the user is logged in or not. Expected functionality on click of the
+'Order' button-
+- Only customers should be able to order food by clicking the ‘Order’ button.
+- It’s optional to implement cart functionality.
+- If the user is not logged in, then he/she should be redirected to the login page.
+- If a user is logged in as a restaurant, then the user should not be allowed to order the food.
+‘View orders’ page - Restaurant should be able to see the list of all the customers who have
+ordered from their restaurant along with the food items they have ordered
