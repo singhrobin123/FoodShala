@@ -5,7 +5,7 @@ import jwt_decode from "jwt-decode";
 import { GET_ERRORS, SET_CUSTOMER_HISTORY, SET_CUSTOMER_LOGOUT, DELETE_ORDER_FROM_CART,CREATE_ORDER, SET_CART_ITEM,SET_CUSTOMER_AUTH, SET_RESTURANT_AUTH, USER_LOADING } from "./page.constants.js";
 export const authUser = (userData,authType) => dispatch => {
    
-    const apiEndPoint = (authType == 'login')?"http://localhost:5000/api/auth/login":"http://localhost:5000/api/auth/register";
+    const apiEndPoint = (authType == 'login')?"http://localhost/api/auth/login":"http://localhost/api/auth/register";
     axios
       .post(apiEndPoint, userData)
       .then(res => {console.error(res);
@@ -43,7 +43,7 @@ export const authUser = (userData,authType) => dispatch => {
   
   export const getCustomerHistory = () => dispatch => {
     console.error("history action");
-    const apiEndPoint = "http://localhost:5000/api/auth/get-history-order";
+    const apiEndPoint = "http://localhost/api/auth/get-history-order";
     axios
       .post(apiEndPoint)
       .then(res => {console.error(res);
@@ -60,7 +60,7 @@ export const authUser = (userData,authType) => dispatch => {
   };
   export const getCartItem = (cart_id) => dispatch => {
 
-    const apiEndPoint = "http://localhost:5000/api/auth/get-cart-item";
+    const apiEndPoint = "http://localhost/api/auth/get-cart-item";
     axios
       .get(apiEndPoint+`/${cart_id}`)
       .then(res => {console.error(res);
@@ -78,7 +78,7 @@ export const authUser = (userData,authType) => dispatch => {
   
   export const deleteFromCart = (data) => dispatch => {
 
-    const apiEndPoint = "http://localhost:5000/api/auth/delete-product-from-cart";
+    const apiEndPoint = "http://localhost/api/auth/delete-product-from-cart";
     axios
       .post(apiEndPoint,data)
       .then(res => {console.error(res);
@@ -95,7 +95,7 @@ export const authUser = (userData,authType) => dispatch => {
   };
   export const createOrder = (data) => dispatch => {
 
-    const apiEndPoint = "http://localhost:5000/api/auth/create-order";
+    const apiEndPoint = "http://localhost/api/auth/create-order";
     axios
       .post(apiEndPoint,data)
       .then(res => {console.error(res);

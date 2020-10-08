@@ -3,7 +3,7 @@ import jwt_decode from "jwt-decode";
 import { GET_ERRORS,GET_ALL_PRODUCT_SUCCESS, ADD_PRODUCT_SUCCESS,GET_ALL_ORDERS_SUCCESS } from "./resturant.constant.js";
 export const Add_Product = (userData) => dispatch => {
 
-    const apiEndPoint = "http://localhost:5000/api/auth/add-product";
+    const apiEndPoint = "http://localhost/api/auth/add-product";
     axios
       .post(apiEndPoint, userData)
       .then(res => {console.error(res);
@@ -20,7 +20,7 @@ export const Add_Product = (userData) => dispatch => {
   export const update_Product = (userData) => dispatch => {
     
     console.error('update data',userData);
-    const apiEndPoint = "http://localhost:5000/api/auth/update-product";
+    const apiEndPoint = "http://localhost/api/auth/update-product";
     axios
       .post(apiEndPoint, userData)
       .then(res => {console.error(res);
@@ -37,7 +37,7 @@ export const Add_Product = (userData) => dispatch => {
   export const getAllOrder = (resturant_id) => dispatch => {
     let decode = jwt_decode(localStorage.getItem("jwtToken"))
     console.error("getAll",decode.resturant_id);
-    const apiEndPoint = "http://localhost:5000/api/auth/get-all-order";
+    const apiEndPoint = "http://localhost/api/auth/get-all-order";
     axios
       .get(`${apiEndPoint}/${decode.resturant_id}`)
       .then(res => {console.error(res);
@@ -55,7 +55,7 @@ export const Add_Product = (userData) => dispatch => {
 
   export const getAllProduct = () => dispatch => {
 
-    const apiEndPoint = "http://localhost:5000/api/auth/get-all-product";
+    const apiEndPoint = "http://localhost/api/auth/get-all-product";
     axios
       .get(apiEndPoint)
       .then(res => {console.error(res);
@@ -73,7 +73,7 @@ export const Add_Product = (userData) => dispatch => {
  
   export const deleteProduct = (data) => dispatch => {
 
-    const apiEndPoint = "http://localhost:5000/api/auth/delete-product";
+    const apiEndPoint = "http://localhost/api/auth/delete-product";
     axios
       .post(apiEndPoint,data)
       .then(res => {console.error(res);
