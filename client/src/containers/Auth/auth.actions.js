@@ -5,7 +5,7 @@ import jwt_decode from "jwt-decode";
 import { GET_ERRORS, SET_CUSTOMER_AUTH, SET_RESTURANT_AUTH, USER_LOADING } from "./auth.constants.js";
 export const authUser = (userData,authType) => dispatch => {
    
-    const apiEndPoint = (authType == 'login')?"http://localhost/api/auth/login":"http://localhost/api/auth/register";
+    const apiEndPoint = (authType == 'login')?"/api/auth/login":"/api/auth/register";
     axios
       .post(apiEndPoint, userData)
       .then(res => {console.error(res);
