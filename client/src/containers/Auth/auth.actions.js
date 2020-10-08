@@ -8,7 +8,7 @@ export const authUser = (userData,authType) => dispatch => {
     const apiEndPoint = (authType == 'login')?"/api/auth/login":"/api/auth/register";
     axios
       .post(apiEndPoint, userData)
-      .then(res => {console.error(res);
+      .then(res => {console.log(res);
         // Save to localStorage
   
         // Set token to localStorage
@@ -22,10 +22,10 @@ export const authUser = (userData,authType) => dispatch => {
            if(decoded.login_type == 'Customers'){
             const  userCartId  = res.data.userCartId;
             localStorage.setItem("userCartId", userCartId);
-            console.error("get Item id in login",userCartId);
+            console.log("get Item id in login",userCartId);
             
               
-            console.error("Set auth",userCartId)
+            console.log("Set auth",userCartId)
             dispatch(setCurrentUser({decoded,userCartId}));
               }
            else{
@@ -53,7 +53,7 @@ export const authUser = (userData,authType) => dispatch => {
 
            let userCartId = localStorage.getItem("userCartId");
 
-          console.error("Set without login auth",userCartId)
+          console.log("Set without login auth",userCartId)
           dispatch(setCurrentUser({decoded,userCartId}));
             }
          else{
@@ -62,7 +62,7 @@ export const authUser = (userData,authType) => dispatch => {
 };
   // Set logged in user
 export const setCurrentUser = data => {
-     console.error("AUTH SUCCESSFULL",data);
+     console.log("AUTH SUCCESSFULL",data);
     return {
       type:  SET_CUSTOMER_AUTH,
       payload: data

@@ -27,20 +27,20 @@ class viewProduct extends Component {
        window.$('#myModal').modal('show');
     })
    
-     console.error("view",e.target.value)
+     console.log("view",e.target.value)
   }
   deleteHandle = (e)=>{
-    console.error("delete handele calles",e.target.value);
+    console.log("delete handele calles",e.target.value);
    this.props.deleteProduct({p_id:e.target.value});
   }
   LogoutHandle = (e) =>{
   
     e.preventDefault();
-    console.error("Handle CLick");
+    console.log("Handle CLick");
     this.props.logoutUser();
   }
   onChangeHandler = ({target}) =>{
-    console.error('name',target.value);
+    console.log('name',target.value);
     let {name,value} = target;
     this.setState({[name]:value});
   }
@@ -57,9 +57,9 @@ componentDidMount() {
    if (localStorage.getItem("jwtToken") != null) {
              
      let decode = jwt_decode(localStorage.getItem("jwtToken"));
-     console.error("login_type",decode.resturant_id);
+     console.log("login_type",decode.resturant_id);
      this.setState({user:decode,type:decode.login_type},()=>{
-       console.error("login_typew",decode.resturant_id);
+       console.log("login_typew",decode.resturant_id);
        this.props.getAllProduct();
      });
     
@@ -69,7 +69,7 @@ componentDidMount() {
     
     if (localStorage.getItem("jwtToken") == null) {
       this.props.history.push('/auth');
-}  console.error("final task",this.props.order.productResponseIdentifer,nextProps.order.productResponseIdentifer);
+}  console.log("final task",this.props.order.productResponseIdentifer,nextProps.order.productResponseIdentifer);
 if(this.props.order.productResponseIdentifer != nextProps.order.productResponseIdentifer){
   if(this.state.isloding){
   
@@ -290,7 +290,7 @@ const UpdateProduct = props =>{
     )
 }
 const mapStateToProps=(state)=>{
-  console.error("Store State===>",state);
+  console.log("Store State===>",state);
 return{products:state.auth.products,order:state.auth}
 }
 const mapDispatchToProps=(dispatch)=>{

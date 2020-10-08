@@ -40,7 +40,7 @@ class Item extends Component {
         let s = localStorage.getItem("userCartId");
         this.props.addTocart({ product_id: e.target.value, cart_id: s, price: e.target.name });
 
-        console.error("Add to cart details", s, this.state.isAuth.customer_id, e.target.name);
+        console.log("Add to cart details", s, this.state.isAuth.customer_id, e.target.name);
         }
     };
     componentDidMount() {
@@ -57,9 +57,9 @@ class Item extends Component {
             this.setState({isAuth:decode,type:decode.login_type});
            
    } 
-		    console.error('componentWillReceiveProps', nextProps);
+		    console.log('componentWillReceiveProps', nextProps);
 		    if(this.props.auth.setAllProductResponseIdentifer != nextProps.auth.setAllProductResponseIdentifer){
-              console.error("Congrats");
+              console.log("Congrats");
               this.setState({product:nextProps.product})
 			}
 		//    
@@ -187,7 +187,7 @@ const HomePageBodyComp = (props) => {
 };
 
 const mapStateToProps = (state) => {
-    console.error("Store State===>", state);
+    console.log("Store State===>", state);
     return { product: state.auth.allProduct, auth: state.auth };
 };
 const mapDispatchToProps = (dispatch) => {

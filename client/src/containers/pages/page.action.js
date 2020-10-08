@@ -8,7 +8,7 @@ export const authUser = (userData,authType) => dispatch => {
     const apiEndPoint = (authType == 'login')?"/api/auth/login":"/api/auth/register";
     axios
       .post(apiEndPoint, userData)
-      .then(res => {console.error(res);
+      .then(res => {console.log(res);
         // Save to localStorage
   
         // Set token to localStorage
@@ -25,7 +25,7 @@ export const authUser = (userData,authType) => dispatch => {
               if(authType == 'register'){
             localStorage.setItem("userCartId", userCartId);
               }
-            console.error("Set auth",userCartId)
+            console.log("Set auth",userCartId)
             dispatch(setCurrentUser({decoded,userCartId}));
               }
            else{
@@ -42,13 +42,13 @@ export const authUser = (userData,authType) => dispatch => {
 
   
   export const getCustomerHistory = () => dispatch => {
-    console.error("history action");
+    console.log("history action");
     const apiEndPoint = "/api/auth/get-history-order";
     axios
       .post(apiEndPoint)
-      .then(res => {console.error(res);
+      .then(res => {console.log(res);
        
-        console.error("hello History Cart",res);
+        console.log("hello History Cart",res);
         dispatch(setCurrentHistory(res.data));
       })
       .catch(err =>
@@ -63,9 +63,9 @@ export const authUser = (userData,authType) => dispatch => {
     const apiEndPoint = "/api/auth/get-cart-item";
     axios
       .get(apiEndPoint+`/${cart_id}`)
-      .then(res => {console.error(res);
+      .then(res => {console.log(res);
        
-        console.error("hello Res Cart",res.data,cart_id);
+        console.log("hello Res Cart",res.data,cart_id);
         dispatch(setCurrentCart(res.data));
       })
       .catch(err =>
@@ -81,9 +81,9 @@ export const authUser = (userData,authType) => dispatch => {
     const apiEndPoint = "/api/auth/delete-product-from-cart";
     axios
       .post(apiEndPoint,data)
-      .then(res => {console.error(res);
+      .then(res => {console.log(res);
        
-        console.error("Delete Res Cart",res);
+        console.log("Delete Res Cart",res);
         dispatch(setCurrentCart(res.data));
       })
       .catch(err =>
@@ -98,9 +98,9 @@ export const authUser = (userData,authType) => dispatch => {
     const apiEndPoint = "/api/auth/create-order";
     axios
       .post(apiEndPoint,data)
-      .then(res => {console.error(res);
+      .then(res => {console.log(res);
        
-        console.error("hello Res Cart",res);
+        console.log("hello Res Cart",res);
         dispatch(setCurrentCart(res.data));
       })
       .catch(err =>
@@ -123,14 +123,14 @@ export const logoutUser = () => dispatch => {
 
   // Set logged in user
 export const setCurrentUser = data => {
-     console.error("AUTH SUCCESSFULL",data);
+     console.log("AUTH SUCCESSFULL",data);
     return {
       type:  SET_CUSTOMER_AUTH,
       payload: data
     };
   };
   export const setCurrentHistory = data => {
-    console.error("History",data);
+    console.log("History",data);
    return {
      type:  SET_CUSTOMER_HISTORY,
      payload: data
@@ -138,7 +138,7 @@ export const setCurrentUser = data => {
  };
   
   export const setCurrentLogout = () => {
-    console.error("Logout SUCCESSFULL");
+    console.log("Logout SUCCESSFULL");
    return {
      type: SET_CUSTOMER_LOGOUT
    };
@@ -152,7 +152,7 @@ export const setCurrentUser = data => {
   };
 
   export const setCurrentCart = payload => {
-           console.error("setcartitem",payload)
+           console.log("setcartitem",payload)
     return {
       type:  SET_CART_ITEM,
       payload: payload

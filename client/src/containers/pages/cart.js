@@ -26,7 +26,7 @@ class Cart extends Component{
 OrderPlaced = () =>{
    if(Object.keys(this.state.cart).length>0){
 
-  console.error("clicked");
+  console.log("clicked");
   this.setState({isloding:true},()=>{
     this.props.createOrder({cart_id:localStorage.getItem("userCartId")
   })});
@@ -39,13 +39,13 @@ deleteCart = (e)=>{
   let s = localStorage.getItem("userCartId");
   this.props.deleteFromCart({prod_id:e.target.value,cart_id:s});
   
-  console.error("Delete from cart details",s,e);
+  console.log("Delete from cart details",s,e);
 }
 
 LogoutHandle = (e) =>{
 
   e.preventDefault();
-  console.error("Handle CLick");
+  console.log("Handle CLick");
   this.props.logoutUser();
 }
 
@@ -54,14 +54,14 @@ view = ()=>{
      window.$('#myModal').modal('show');
   })
  
-  console.error("view")
+  console.log("view")
 }
 hide = ()=>{
   this.setState({show:false},()=>{
      window.$('#myModal').modal('hide');
   })
  
-  console.error("view")
+  console.log("view")
 }
 
 componentDidMount(){
@@ -70,21 +70,21 @@ componentDidMount(){
        }
        this.props.getCustomerHistory();
        this.props.getCartItem(localStorage.getItem("userCartId"));
-      console.error("history called");
+      console.log("history called");
          
 }
 componentWillReceiveProps(nextProps) {
      
-    console.error('componentWillReceiveProps', nextProps,nextProps.data.cartResponseIdentifer,this.props.data.cartResponseIdentifer);
+    console.log('componentWillReceiveProps', nextProps,nextProps.data.cartResponseIdentifer,this.props.data.cartResponseIdentifer);
     if (localStorage.getItem("jwtToken") == null) {
       this.props.history.push('/auth');
     }
    if(this.props.data.historyResponseIdentifer != nextProps.data.historyResponseIdentifer){
-          console.error("History data nextprops",nextProps.data.history);
+          console.log("History data nextprops",nextProps.data.history);
           this.setState({order:nextProps.data.history.data});
    }
    if(this.props.data.cartResponseIdentifer != nextProps.data.cartResponseIdentifer){
-     console.error("Cart",nextProps.data.cartItem.data);
+     console.log("Cart",nextProps.data.cartItem.data);
      if(this.state.isloding){
 
      this.setState({cart:nextProps.data.cartItem.data,isloding:false,success:true},()=>{
@@ -101,7 +101,7 @@ componentWillReceiveProps(nextProps) {
 
     render(){
         
-      console.error("hello c cart",this.state.order);
+      console.log("hello c cart",this.state.order);
       let total = 0;
       let size = 0;
         if(this.state.cart != null){
@@ -275,7 +275,7 @@ const Comp = props =>{
   )
 }
 const mapStateToProps = state => {
-  console.error("Store State1===>",state);
+  console.log("Store State1===>",state);
   return{user:state.auth.user, data:state.auth}
 }
 const mapDispatchToProps = dispatch => {

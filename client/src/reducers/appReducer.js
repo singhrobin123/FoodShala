@@ -72,7 +72,7 @@ export default function(state = initialState, action) {
                 user: action.payload
             };
             case SET_CART_ITEM:
-              console.error("congrats carts",action.payload);
+              console.log("congrats carts",action.payload);
                 return {
                   ...state,
                   cartItem: action.payload,
@@ -91,7 +91,7 @@ export default function(state = initialState, action) {
               resturantOrder: action.payload.data
           };
       case GET_ALL_PRODUCT_SUCCESS:
-        console.error("GET_ALL_PRODUCT",action.payload.data);
+        console.log("GET_ALL_PRODUCT",action.payload.data);
           return {
               ...state,
               resturantProducts: action.payload.data,

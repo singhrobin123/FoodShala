@@ -20,12 +20,12 @@ class Login extends Component{
         this.props.authUser({usertype:this.state.usertype,email:this.state.email,password:this.state.password},"login")
     }
     componentDidMount() {
-      console.error("Called mount")
+      console.log("Called mount")
       if (localStorage.getItem("jwtToken") != null) {
-        console.error("History My", localStorage.getItem("jwtToken"));
+        console.log("History My", localStorage.getItem("jwtToken"));
                 this.props.setStore();
        }
-      console.error("isMount");
+      console.log("isMount");
       if (localStorage.getItem("jwtToken") == null)
       window.$('#myModal').modal('show');
       // this.props.history.push('/pages/navbar');
@@ -33,7 +33,7 @@ class Login extends Component{
     componentWillReceiveProps(nextProps) {
       if (nextProps.auth.isAuthenticated) {
         window.$('#myModal').modal('hide');
-        console.error("Ready to move");
+        console.log("Ready to move");
         this.props.history.push('/home/Dashboard');
       }
     }
@@ -103,7 +103,7 @@ const LoginModel = props => {
     )
 }
 const mapStateToProps = state => {
-  console.error("Store State===>",state);
+  console.log("Store State===>",state);
   return{user:state.auth.user,auth: state.auth}
 }
 const mapDispatchToProps = dispatch => {

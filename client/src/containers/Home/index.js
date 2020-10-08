@@ -9,7 +9,7 @@ class Home extends Component{
                  
         }
     }
-    render(){console.error("getting")
+    render(){console.log("getting")
         return(  
             <>
             {this.props.location.pathname == "/home/Dashboard" && <Dashboard history={this.props.history} />}

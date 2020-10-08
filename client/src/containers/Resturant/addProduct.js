@@ -28,7 +28,7 @@ class AddProduct extends Component {
 LogoutHandle = (e) =>{
 
   e.preventDefault();
-  console.error("Handle CLick");
+  console.log("Handle CLick");
   this.props.logoutUser();
 }
 onChangeHandler = ({target}) =>{
@@ -44,7 +44,7 @@ submitBtnHandler = ({target}) => {
 componentDidMount(){
  if (localStorage.getItem("jwtToken") != null) {
            let decode = jwt_decode(localStorage.getItem("jwtToken"));
-           console.error("login_type",decode);
+           console.log("login_type",decode);
            this.setState({user:decode,type:decode.login_type});
   }
    else{
@@ -68,7 +68,7 @@ if(this.props.auth.AddProductResponseIdentifer != nextProps.auth.AddProductRespo
 
 }
 
-    render() {  console.error("Alert Add Product",this.props.product);
+    render() {  console.log("Alert Add Product",this.props.product);
         return ( 
           <>
           <Navbar
@@ -180,7 +180,7 @@ const Add_Product_Component = props =>{
 }
 
 const mapStateToProps = state => {
-  console.error("Store State===>",state);
+  console.log("Store State===>",state);
   return{product:state.auth.isProductAdded,auth:state.auth}
 }
 const mapDispatchToProps = dispatch => {

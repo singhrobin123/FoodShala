@@ -32,14 +32,14 @@ class Register extends Component {
     };
     componentDidMount() {
        if (localStorage.getItem("jwtToken") != null) {
-        console.error("History My", localStorage.getItem("jwtToken"));
+        console.log("History My", localStorage.getItem("jwtToken"));
                 this.props.setStore();
        }
     
         }
     componentWillReceiveProps(nextProps) {
         if (localStorage.getItem("jwtToken") != null) {
-        console.error("componentWillReceiveProps123556", nextProps);
+        console.log("componentWillReceiveProps123556", nextProps);
         console.log("NEw login", nextProps.data.isAuthenticated);
         window.$("#myModal1").modal("hide");
         window.$("#myModal2").modal("hide");
@@ -287,7 +287,7 @@ const RegisterResturantForm = (props) => {
 };
 
 const mapStateToProps = (state) => {
-    console.error("Store State===>", state);
+    console.log("Store State===>", state);
     return { user: state.auth.user, data: state.auth, userCartId: state.auth.userCartId, registerResponseIdentifier: state.auth.registerResponseIdentifier };
 };
 const mapDispatchToProps = (dispatch) => {

@@ -6,7 +6,7 @@ class Landing extends Component {
     constructor(props) {
       super();
       this.state = {  }
-      console.error("Login");
+      console.log("Login");
     }
   componentDidMount(){
 

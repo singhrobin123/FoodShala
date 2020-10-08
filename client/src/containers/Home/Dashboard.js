@@ -18,12 +18,12 @@ class Deshboard extends Component{
       size:0,
       cart:[]
     }
-    console.error("Hello",this.props);
+    console.log("Hello",this.props);
 }
 LogoutHandle = (e) =>{
 
     e.preventDefault();
-    console.error("Handle CLick");
+    console.log("Handle CLick");
     this.props.logoutUser();
 }
 componentDidMount(){
@@ -32,10 +32,10 @@ componentDidMount(){
 
             // this.props.getAllProduct(1);
             let decode = jwt_decode(localStorage.getItem("jwtToken"));
-            console.error("login_type",decode);
+            console.log("login_type",decode);
             this.setState({user:decode,type:decode.login_type});
           if(decode.login_type == 'Customers'){
-              console.error("fatching",localStorage.getItem("userCartId"))
+              console.log("fatching",localStorage.getItem("userCartId"))
              this.props.getCartItem(localStorage.getItem("userCartId"));
           }
             // this.props.history.push('/auth/login');
@@ -53,10 +53,10 @@ componentWillReceiveProps(nextProps) {
 }
 
     render(){
-        console.error("Home my",this.state.user);
+        console.log("Home my",this.state.user);
       let total = 0;
       let size = 0;
-      console.error('user',this.state.user);
+      console.log('user',this.state.user);
         if(this.state.type == 'Customers'){
             
         if(this.state.cart.data){
@@ -64,7 +64,7 @@ componentWillReceiveProps(nextProps) {
             size = size+1;
             total = total+key.p_price;
         });
-        console.error("Homennnnnnnnnnn",size);
+        console.log("Homennnnnnnnnnn",size);
     }
   }
    return(
@@ -82,7 +82,7 @@ componentWillReceiveProps(nextProps) {
 }
 
 const mapStateToProps = state => {
-  console.error("Store State1===>",state);
+  console.log("Store State1===>",state);
   return{user:state.auth.user, data : state.auth}
 }
 const mapDispatchToProps = dispatch => {

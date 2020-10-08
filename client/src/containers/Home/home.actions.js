@@ -9,9 +9,9 @@ export const getAllProduct = (page_no) => (dispatch) => {
     axios
         .get(apiEndPoint + `/${page_no}`)
         .then((res) => {
-            console.error(res);
+            console.log(res);
             
-            console.error("hello Res", res.data);
+            console.log("hello Res", res.data);
             dispatch(setCurrentUser(res.data));
            
         })
@@ -27,9 +27,9 @@ export const addTocart = (data) => (dispatch) => {
     axios
         .post(apiEndPoint, data)
         .then((res) => {
-            console.error(res);
+            console.log(res);
 
-            console.error("AddTocart====>", res.data);
+            console.log("AddTocart====>", res.data);
             dispatch(setCurrentCart(res.data));
         })
         .catch((err) =>
@@ -47,7 +47,7 @@ export const setCurrentUser = (decoded) => {
     };
 };
 export const setCurrentAdd = (decoded) => {
-  console.error("Getting ",decoded);
+  console.log("Getting ",decoded);
     return {
         type: SET_CART_ITEM,
         payload: decoded,

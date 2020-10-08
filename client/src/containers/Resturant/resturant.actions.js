@@ -6,8 +6,8 @@ export const Add_Product = (userData) => dispatch => {
     const apiEndPoint = "/api/auth/add-product";
     axios
       .post(apiEndPoint, userData)
-      .then(res => {console.error(res);
-        // console.error("hello Res",res.data);
+      .then(res => {console.log(res);
+        // console.log("hello Res",res.data);
         dispatch(setCurrentUser());
       })
       .catch(err =>
@@ -19,12 +19,12 @@ export const Add_Product = (userData) => dispatch => {
   };
   export const update_Product = (userData) => dispatch => {
     
-    console.error('update data',userData);
+    console.log('update data',userData);
     const apiEndPoint = "/api/auth/update-product";
     axios
       .post(apiEndPoint, userData)
-      .then(res => {console.error(res);
-         console.error("hello Res",res.data);
+      .then(res => {console.log(res);
+         console.log("hello Res",res.data);
         dispatch(setCurrentProduct(res.data));
       })
       .catch(err =>
@@ -36,13 +36,13 @@ export const Add_Product = (userData) => dispatch => {
   };
   export const getAllOrder = (resturant_id) => dispatch => {
     let decode = jwt_decode(localStorage.getItem("jwtToken"))
-    console.error("getAll",decode.resturant_id);
+    console.log("getAll",decode.resturant_id);
     const apiEndPoint = "/api/auth/get-all-order";
     axios
       .get(`${apiEndPoint}/${decode.resturant_id}`)
-      .then(res => {console.error(res);
+      .then(res => {console.log(res);
 
-        console.error("hello Res",res.data);
+        console.log("hello Res",res.data);
         dispatch(setCurrentOrder(res.data));
       })
       .catch(err =>
@@ -58,9 +58,9 @@ export const Add_Product = (userData) => dispatch => {
     const apiEndPoint = "/api/auth/get-all-product";
     axios
       .get(apiEndPoint)
-      .then(res => {console.error(res);
+      .then(res => {console.log(res);
 
-        // console.error("hello Resk",res.data);
+        // console.log("hello Resk",res.data);
         dispatch(setCurrentProduct(res.data));
       })
       .catch(err =>
@@ -76,9 +76,9 @@ export const Add_Product = (userData) => dispatch => {
     const apiEndPoint = "/api/auth/delete-product";
     axios
       .post(apiEndPoint,data)
-      .then(res => {console.error(res);
+      .then(res => {console.log(res);
 
-        console.error("delete product response",res.data);
+        console.log("delete product response",res.data);
         dispatch(setCurrentProduct(res.data));
       })
       .catch(err =>
@@ -96,14 +96,14 @@ export const setCurrentUser = decoded => {
     };
   };
   export const setCurrentOrder = decoded => {
-      console.error("decode ======>",decoded);
+      console.log("decode ======>",decoded);
     return {
       type: GET_ALL_ORDERS_SUCCESS,
       payload: decoded
     };
   };
   export const setCurrentProduct = decoded => {
-    console.error("decode ======>",decoded);
+    console.log("decode ======>",decoded);
   return {
     type: GET_ALL_PRODUCT_SUCCESS,
     payload: decoded

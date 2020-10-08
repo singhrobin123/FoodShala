@@ -19,7 +19,7 @@ class ViewOrder extends Component {
 LogoutHandle = (e) =>{
 
   e.preventDefault();
-  console.error("Handle CLick");
+  console.log("Handle CLick");
   this.props.logoutUser();
 }
 hide = (e)=>{
@@ -27,14 +27,14 @@ hide = (e)=>{
      window.$('#myModal').modal('hide');
   })
  
-  console.error("view",e.target.value)
+  console.log("view",e.target.value)
 }
 view = (e)=>{
   this.setState({show:true},()=>{
      window.$('#myModal').modal('show');
   })
  
-  console.error("view",e.target.value)
+  console.log("view",e.target.value)
 }
 componentDidMount() {
  // window.$('#myModal').modal('hide');
@@ -42,9 +42,9 @@ componentDidMount() {
   if (localStorage.getItem("jwtToken") != null) {
             
     let decode = jwt_decode(localStorage.getItem("jwtToken"));
-    console.error("login_type",decode.resturant_id);
+    console.log("login_type",decode.resturant_id);
     this.setState({user:decode,type:decode.login_type},()=>{
-      console.error("login_typew",decode.resturant_id);
+      console.log("login_typew",decode.resturant_id);
       this.props.getAllOrder({id:decode.resturant_id});
     });
    
@@ -55,12 +55,12 @@ componentWillReceiveProps(nextProps) {
       this.props.history.push('/auth');
   }
   else{
-   console.error("Nextprops",nextProps.order.resturantOrder);
+   console.log("Nextprops",nextProps.order.resturantOrder);
    this.setState({order:nextProps.order.resturantOrder});
   }
 }
     render() { 
-                console.error("View Orders render = ",this.state.order);
+                console.log("View Orders render = ",this.state.order);
         return ( 
 
 
@@ -251,7 +251,7 @@ const Comp = props =>{
   )
 }
 const mapStateToProps=(state)=>{
-  console.error("Store State===>",state);
+  console.log("Store State===>",state);
 return{order:state.auth}
 }
 const mapDispatchToProps=(dispatch)=>{
